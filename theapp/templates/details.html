@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Boost Forge{% endblock %}
+{% block content %}
+
+<h1>Message Details</h1>
+<br>
+{% if user.is_authenticated %}
+<small>
+    {{ post.post_date }}
+    <br/>
+    {{ post.post_time }}
+
+
+</small>
+
+<h2>{{ post.title }}</h2><br/>
+<hr>
+<h3>Platform: </h3>
+<h4>Message Content: </h4>
+<br/>
+{% if post.image %}
+<img src="{{ post.image.url }}">
+{% endif %}
+{% if user.image %}
+<img src="{{ user.image.url }}">
+{% endif %}
+
+<h5>{{ post.body|safe }}</h5>
+<h5>{{ getvalue }}</h5>
+<br/><br/>
+
+<a href="{% url 'home' %}" class="btn btn-dark">BACK</a>
+
+{% else %}
+YOU ARE NOT ALLOWED HERE!
+{% endif %}
+{% endblock %}

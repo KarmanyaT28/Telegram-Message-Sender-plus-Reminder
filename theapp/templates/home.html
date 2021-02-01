@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Boost Forge{% endblock %}
+{% block content %}
+<h1>Your Reminders:</h1>
+<ul>
+{% for post in object_list %}
+    {% if user.is_authenticated %}
+        {% if user.id == post.author.id %}
+            <li><a href="{% url 'details' post.pk %}">{{ post.title }}</a> - 
+                <small><a href="{% url 'update' post.pk %}" class="btn btn-dark">Edit</a></small>
+
+                <small><a href="{% url 'delete' post.pk %}" class="btn btn-dark">Delete</a></small>
+                    
+                <br/>
+                {{ post.body }}
+                </li><br/>
+        {% endif %}
+    {% else %}
+        Sorry! You Are Not Registered!
+    {% endif %}
+
+{% endfor %}
+
+
+
+</ul>
+{% endblock %}

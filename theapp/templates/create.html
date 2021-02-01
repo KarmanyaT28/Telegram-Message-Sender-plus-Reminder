@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Boost Forge{% endblock %}
+{% block content %}
+<h1>Create A Reminder</h1>
+<br/>
+<br/>
+{% if user.is_authenticated %}
+<div class="form-group">
+    <form method="POST" enctype="multipart/form-data" >
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form.as_p }}
+        
+        <button class="btn btn-dark">POST</button>
+    </form>
+</div>
+<script>
+    var name="{{ user.id }}"
+    document.getElementById("elder").placeholder = name;
+</script>
+{% else %}
+You Are Not Allowed On This Website.
+{% endif %}
+{% endblock %}

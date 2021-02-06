@@ -42,10 +42,10 @@ def postmess(request):
         
     files= {'photo':open('C:/Users/Karmanya/Pictures/Camera Roll/beautiful_natural_scenery_04_hd_pictures_166229.jpg','rb')}
     
-    resp = requests.post('https://api.telegram.org/bot1409753121:AAFpkrG3Ty_PK3lfdPhe1Druktimrz2uHyU/sendPhoto?chat_id=-325846964',files=files)
+    resp = requests.post('######################################################################################',files=files)
     print(resp.status_code)
     fields12 = fiel
-    base_url = 'https://api.telegram.org/bot1519165001:AAEb-g0ioCNOpDvTBNDaevDyEc3hc5f2Wkc/sendMessage?chat_id=-325846964&text="{}"'.format(fields12)
+    base_url = '###################################################################################&text="{}"'.format(fields12)
     a = requests.get(base_url)
     return render(request,'details.html',{'a':a,'getvalue':files})
 
